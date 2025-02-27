@@ -9,9 +9,11 @@ app = FastAPI()
 # Ruta absoluta
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Obtiene la carpeta donde está main.py
 MODEL_PATH = os.path.join(BASE_DIR, "..", "modelo", "pipeline_total.gz")  # Construye la ruta absoluta
+print("Ruta esperada del modelo:", os.path.abspath(MODEL_PATH))
 
 @app.get("/")
 def read_root():
+    
     return {"message": "API de predicción de ingresos"}
 
 @app.post("/predict")
